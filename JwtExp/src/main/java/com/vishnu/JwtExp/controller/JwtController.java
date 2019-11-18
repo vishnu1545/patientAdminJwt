@@ -66,9 +66,9 @@ public class JwtController {
 	public List<String> resources(@RequestParam String role){
 		List<String> resources=new ArrayList<String>();
 		if(role.equals("ROLE_PATIENT"))
-			resources.add("/patientService");
+			resources.add(".*/patientService");
 		else if(role.equals("ROLE_ADMIN"))
-			resources.add("/**");
+			resources.add(".*");
 		return resources;
 		
 	}
