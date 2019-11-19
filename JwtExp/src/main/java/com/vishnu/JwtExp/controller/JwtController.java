@@ -16,18 +16,15 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @RestController
 @RequestMapping("/get")
 public class JwtController {
-	@GetMapping("/admin")
-	public String authAdmin(@RequestParam String user,@RequestParam String password) {
+	@GetMapping("/user")
+	public String auth(@RequestParam String user,@RequestParam String password) {
 		if(user.equals("admin") && password.equals("admin"))
 			return "urAdmin";
-		return null;
-	}
-	@GetMapping("/patient")
-	public String authPatient(@RequestParam String user,@RequestParam String password) {
-		if(user.equals("vishnu1545") && password.equals("vishnu1545"))
+		else if(user.equals("vishnu1545") && password.equals("vishnu1545"))
 			return "urPatient";
 		return null;
 	}
+	
 	@GetMapping("/jwt")
 	public String jwt(@RequestParam String auth) {
 		if(auth.equals("urAdmin"))
